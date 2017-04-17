@@ -1,0 +1,95 @@
+body,ul,li,a,tr,td,th,h1,h2,h3,h4,h5,h6,dl,dd,dt,p,i,body, ul, li, p, h1, h2, h3, h4, h5, h6, img, br, hr, table, tr, td, dl, dt, dd, form {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    position: relative;
+    font: 12px/1.5 Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+    margin: 0 auto;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    color: #666;
+}
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/****************************************************/
+
+body{
+    background-color: #000;
+}
+.wrap {
+    color: #666;
+    width: 190px;
+    position: relative;
+    height: 190px;
+    padding-left: 8px;
+    margin:0 auto;
+}
+.tab-panel {
+    height: 21px;
+    padding: 15px 0 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+.tab-head-item {
+    float: left;
+    margin-right: 6px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.tab-panel .clicked>a {
+    color: #fff;
+}
+.tab-head-item>a {
+    position: relative;
+    display: inline-block;
+    padding: 0 2px;
+    line-height: 16px;
+    color: rgb(0.4, 0.4, 0.4,0.6);
+    white-space: nowrap;
+    height: 21px;
+    text-align: center;
+}
+.tab-content-panel {
+    position: relative;
+    height: 146px;  
+    background:#666;
+    
+    overflow: hidden;
+}
+.tab-content-item {
+    position: relative;
+    width: 190px;
+    float: left;
+    padding-left: 8px;
+    color: #e6e6e6;
+}
+.content-wrapper {
+    position: relative;
+    height: 138px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 10px #e0dfde;
+    zoom: 1;
+}
+
