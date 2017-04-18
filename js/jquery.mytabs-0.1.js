@@ -4,12 +4,16 @@
  *                  普通
  *                  animate方法左右切换
  *                }
- * 结构：.tab-panel
- *          .tab-head-item
- *          .tab-head-item
- *      .tab-content-panel
- *          .tab-content-item
- *          .tab-content-item
+ *      px
+ * 结构：.wrap
+ *          .tab-panel
+ *              .tab-head-item
+ *                  a
+ *              .tab-head-item
+ *                  a
+ *          .tab-content-panel
+ *              .tab-content-item
+ *              .tab-content-item
  * 调用方法：$(element).tabs();
  */
 
@@ -19,6 +23,7 @@
 ;
 (function($){
     var __DEFAULT__={                                           /*默认参数 */
+                wrap:'.wrap',
                 headPanel:'.tab-panel',                         /*标题wrap */
                 headItem:'.tab-head-item',                      /*选项卡标题 */
                 contentPanel:'.tab-content-panel',              /*内容页wrap */
@@ -31,15 +36,19 @@
         /*普通切换 */
         'tabs':function(options){
             var option=$.extend({},__DEFAULT__,options);
-            var $tHead=$(option.headPanel,this),
+            var $wrap=$(this),
+                $tHead=$(option.headPanel,this),
                 $tContent=$(option.contentPanel,this),
                 $thItem=$(option.headItem,$tHead),
                 $tcItem=$(option.contentItem,$tContent);
+                _wrapWid=$wrap.width();
             if(!$thItem==$tcItem) return console.log('!=');
+            $tcItem.width(_wrapWid);
             $thItem.eq(0).addClass('clicked')
                        .siblings().removeClass('clicked');
             $tContent.wrapAll('<div class="content-wrapper"></div');
             $tcItem.eq(0).siblings().css({'display':'none'});
+            /*鼠标移入 */
             $thItem.on('mouseover',function(){
                 var _idx=$(this).index();
                 $tcItem.eq(_idx).css({'display':'block'})
@@ -51,14 +60,17 @@
         },
 
         /*横向移动切换 */
-        'animateTabs':function(options){
+        'anitabs':function(options){
             var option=$.extend({},__DEFAULT__,options);
-            var $tHead=$(option.headPanel,this),
+            var $wrap=$(this),
+                $tHead=$(option.headPanel,this),
                 $tContent=$(option.contentPanel,this),
                 $thItem=$(option.headItem,$tHead),
                 $tcItem=$(option.contentItem,$tContent);
+                _wrapWid=$wrap.width();
                 _dir=option.direction;
             if($thItem.length!=$tcItem.length) return console.log($thItem.length+'!='+$tcItem.length);
+            $tcItem.width(_wrapWid);
             $tContent.wrapAll('<div class="content-wrapper"></div');
             $thItem.eq(0).addClass('clicked')
                        .siblings().removeClass('clicked');
